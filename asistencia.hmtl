@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validador InitGrammers</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #9d1a5f;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    img.logo {
+      width: 200px;
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 1rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #9d1a5f;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #7c144b;
+    }
+
+    #resultado {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 1.5rem;
+      }
+
+      img.logo {
+        width: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://i.imgur.com/wT2ewvO.png" alt="InitGrammers logo" class="logo">
+    <h2>Validador de Código Único</h2>
+    <label for="codigo">Ingresa tu código:</label>
+    <input type="text" id="codigo" placeholder="Ej. V8L2Q7M3">
+    <button onclick="validarCodigo()">Validar</button>
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    const codigos = {
+      "V8L2Q7M3": "Antonio Gregorio Peña Tulcán",
+      "F3X9K1Z8": "Carlos Jostin León Galeas",
+      "T5N7D6A4": "Edison Arturo Salinas Cruz",
+      "M9C3W2Y6": "Elvis Ismael Yangari Calva",
+      "Z6B1J4Q8": "Evelyn del Cisne Guachichullca Cabrera",
+      "H4R8L7V2": "José Julián Escobar Ordoñez",
+      "K7W3T9D5": "Kevin Macas",
+      "B2F6X1Z9": "Kevin Timothy Rams",
+      "J5M8Q4K7": "Lander Xavier Lliguicota Lopez",
+      "D1Y9C6W3": "Mauricio Alexander Sarzosa Jarrín"
+    };
+
+    function validarCodigo() {
+      const input = document.getElementById("codigo").value.trim().toUpperCase();
+      const resultado = document.getElementById("resultado");
+
+      if (codigos[input]) {
+        resultado.textContent = `✅ Código válido. Corresponde a: ${codigos[input]}`;
+        resultado.style.color = "green";
+      } else {
+        resultado.textContent = "❌ Código inválido. Por favor, revisa e intenta de nuevo.";
+        resultado.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
